@@ -1,0 +1,16 @@
+<%= div_for todo do %>
+  <%= todo.name %>
+  <span class="created_at">
+    <%= time_ago_in_words(todo.created_at) %>
+  </span>
+  <div class="todo_actions">
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+      edit_todo_path(todo), :class => 'btn btn-mini' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+      todo_path(todo),
+      :method => :delete,
+      :remote => true,
+      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+      :class => 'btn btn-mini btn-danger' %>
+  </div>
+<% end %>

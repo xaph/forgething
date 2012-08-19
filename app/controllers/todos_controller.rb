@@ -80,6 +80,7 @@ class TodosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to todos_url }
       format.json { head :no_content }
+      format.js
     end
   end
 end
