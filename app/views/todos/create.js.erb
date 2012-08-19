@@ -1,0 +1,2 @@
+$('div#todos').append("<%= escape_javascript(render @todo) %>");
+$('div#<%= dom_id(@todo) %>').highlight();

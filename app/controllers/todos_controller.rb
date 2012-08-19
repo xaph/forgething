@@ -52,6 +52,7 @@ class TodosController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
