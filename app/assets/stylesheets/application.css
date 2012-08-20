@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+ul.hmenu {
+  list-style: none;	
+  padding: 0;
+  float: right !important;
+}
+
+ul.hmenu li {
+  display: inline;  
+}
+
+.gray {
+  background-color: #F9F9F9;
+}
