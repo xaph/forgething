@@ -3,8 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .todo {
   font-size: 18px;
+  border-top: 1px solid #DDDDDD;
+  .name {
+    float: left;
+    padding: 15px 0px;
+    margin-left: 10px;
+  }
   .created_at {
+    width: 100px;
     color: #999;
     font-size: 12px;
+    float: right;
   }
 }
