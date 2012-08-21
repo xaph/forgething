@@ -29,6 +29,15 @@ class TodosController < ApplicationController
     end
   end
 
+  def all
+    @todos = current_user.todos.unscoped
+
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render json: @todos }
+    end
+  end
+
   # GET /todos/1
   # GET /todos/1.json
   def show
@@ -94,7 +103,8 @@ class TodosController < ApplicationController
   # DELETE /todos/1.json
   def destroy
     @todo = Todo.find(params[:id])
-    @todo.destroy
+    @todo.deleted_at = Time.now
+    @todo.save
 
     respond_to do |format|
       format.html { redirect_to todos_url }

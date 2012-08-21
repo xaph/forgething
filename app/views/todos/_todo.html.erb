@@ -7,7 +7,7 @@
     <div class="todo_actions">
       <%= link_to t('.edit', :default => t("helpers.links.edit")),
         edit_todo_path(todo), :class => 'btn btn-mini' %>
-      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+      <%= link_to t('done'),
         todo_path(todo),
         :method => :delete,
         :remote => true,

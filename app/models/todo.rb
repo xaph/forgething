@@ -22,4 +22,6 @@ class Todo < ActiveRecord::Base
   validates_presence_of :name
 
   belongs_to :user
+
+  default_scope where("deleted_at IS NULL")
 end

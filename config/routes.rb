@@ -1,5 +1,9 @@
 Forgething::Application.routes.draw do
-  resources :todos
+  resources :todos do
+    collection do
+      get 'all'
+    end
+  end
 
   devise_for :users
 
