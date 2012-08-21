@@ -2,6 +2,8 @@ require 'test_helper'
 
 class TodosControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
+    sign_in @user
     @todo = todos(:one)
   end
 
