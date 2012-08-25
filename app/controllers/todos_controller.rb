@@ -21,7 +21,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = current_user.todos
+    @todos = current_user.todos.order("starred DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,7 +30,7 @@ class TodosController < ApplicationController
   end
 
   def all
-    @todos = current_user.todos.unscoped
+    @todos = current_user.todos.unscoped.order("starred DESC")
 
     respond_to do |format|
       format.html { render 'index' }
@@ -108,6 +108,30 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to todos_url }
+      format.json { head :no_content }
+      format.js
+    end
+  end
+
+  def star
+    @todo = Todo.find(params[:id])
+    @todo.starred = true
+    @todo.save
+
+    respond_to do |format|
+      format.html { redirect_to todos_url, notice: 'Todo was successfully starred' }
+      format.json { head :no_content }
+      format.js
+    end
+  end
+
+  def unstar
+    @todo = Todo.find(params[:id])
+    @todo.starred = false
+    @todo.save
+
+    respond_to do |format|
+      format.html { redirect_to todos_url, notice: 'Todo star was successfully removed' }
       format.json { head :no_content }
       format.js
     end

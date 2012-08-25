@@ -1,5 +1,12 @@
 <%= div_for todo, :class => cycle("gray", "") do %>
   <span class="name span4">
+    <span class="star">
+      <% if todo.starred %>
+        <%= link_to "<i class='icon-star'></i>".html_safe, unstar_todo_path(todo), :remote => true %>
+      <% else %>
+        <%= link_to "<i class='icon-star-empty'></i>".html_safe, star_todo_path(todo), :remote => true %>
+      <% end %>
+    </span>
     <%= todo.name %>
   </span>
   <div class="created_at span2">

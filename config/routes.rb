@@ -3,6 +3,10 @@ Forgething::Application.routes.draw do
     collection do
       get 'all'
     end
+    member do
+      get 'star'
+      get 'unstar'
+    end
   end
 
   devise_for :users
