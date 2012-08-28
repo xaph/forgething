@@ -12,14 +12,18 @@
   <div class="created_at span2">
     <%= time_ago_in_words(todo.created_at) %>
     <div class="todo_actions">
-      <%= link_to t('.edit', :default => t("helpers.links.edit")),
-        edit_todo_path(todo), :class => 'btn btn-mini' %>
-      <%= link_to t('done'),
-        todo_path(todo),
-        :method => :delete,
-        :remote => true,
-        :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-        :class => 'btn btn-mini btn-danger' %>
+      <% if todo.deleted_at.nil? %>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          edit_todo_path(todo), :class => 'btn btn-mini' %>
+        <%= link_to t('done'),
+          todo_path(todo),
+          :method => :delete,
+          :remote => true,
+          :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+          :class => 'btn btn-mini btn-danger' %>
+        <% else %>
+          <span><%= t(:completed) %></span>
+        <% end %>
     </div>
   </div>
   <div class="clearfix"></div>

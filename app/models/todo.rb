@@ -23,5 +23,5 @@ class Todo < ActiveRecord::Base
 
   belongs_to :user
 
-  default_scope where("deleted_at IS NULL")
+  default_scope where("deleted_at IS NULL").order("starred DESC")
 end

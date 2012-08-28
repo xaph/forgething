@@ -19,10 +19,16 @@
 class TodosController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!
+
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:error] = 'The todo you tried to access does not exist'
+    redirect_to todos_path
+  end
+  
   # GET /todos
   # GET /todos.json
   def index
-    @todos = current_user.todos.order("starred DESC")
+    @todos = current_user.todos
 
     respond_to do |format|
       format.html # index.html.erb
@@ -31,7 +37,7 @@ class TodosController < ApplicationController
   end
 
   def all
-    @todos = current_user.todos.order("starred DESC")
+    @todos = Todo.unscoped.where(:user_id => current_user).order("starred DESC")
 
     respond_to do |format|
       format.html { render 'index' }
