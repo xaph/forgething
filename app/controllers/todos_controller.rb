@@ -17,6 +17,7 @@
 # along with ForgeThing.  If not, see <http://www.gnu.org/licenses/>.
 
 class TodosController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate_user!
   # GET /todos
   # GET /todos.json
@@ -41,8 +42,6 @@ class TodosController < ApplicationController
   # GET /todos/1
   # GET /todos/1.json
   def show
-    @todo = current_user.todos.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @todo }
@@ -62,7 +61,6 @@ class TodosController < ApplicationController
 
   # GET /todos/1/edit
   def edit
-    @todo = Todo.find(params[:id])
   end
 
   # POST /todos
@@ -86,8 +84,6 @@ class TodosController < ApplicationController
   # PUT /todos/1
   # PUT /todos/1.json
   def update
-    @todo = Todo.find(params[:id])
-
     respond_to do |format|
       if @todo.update_attributes(params[:todo])
         format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
@@ -102,7 +98,6 @@ class TodosController < ApplicationController
   # DELETE /todos/1
   # DELETE /todos/1.json
   def destroy
-    @todo = Todo.find(params[:id])
     @todo.deleted_at = Time.now
     @todo.save
 
@@ -114,7 +109,6 @@ class TodosController < ApplicationController
   end
 
   def star
-    @todo = Todo.find(params[:id])
     @todo.starred = true
     @todo.save
 
@@ -126,7 +120,6 @@ class TodosController < ApplicationController
   end
 
   def unstar
-    @todo = Todo.find(params[:id])
     @todo.starred = false
     @todo.save
 

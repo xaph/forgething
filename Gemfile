@@ -8,6 +8,7 @@ gem 'rails', '3.2.6'
 gem 'sqlite3'
 gem 'devise'
 gem 'simple_form'
+gem 'cancan'
 
 gem 'quiet_assets', :group => :development
 
