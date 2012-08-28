@@ -30,7 +30,7 @@ class TodosController < ApplicationController
   end
 
   def all
-    @todos = current_user.todos.unscoped.order("starred DESC")
+    @todos = current_user.todos.order("starred DESC")
 
     respond_to do |format|
       format.html { render 'index' }
