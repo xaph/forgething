@@ -1,1 +1,1 @@
-$('div#<%= dom_id(@todo) %> .star').html("<i class='icon-star'></i>");
+$('div#<%= dom_id(@todo) %> .star').html('<%= link_to "<i class=\"icon-star\"></i>".html_safe, unstar_todo_path(@todo), :remote => true %>');
