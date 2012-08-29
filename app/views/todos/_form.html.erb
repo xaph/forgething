@@ -3,11 +3,13 @@
   <%= f.input :description %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-		<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-								todo_path(@todo),
-				        :method => 'delete',
-								:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-								:class => 'btn btn-danger' %>
+    <% unless @todo.new_record? %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  todo_path(@todo),
+                  :method => 'delete',
+                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                  :class => 'btn btn-danger' %>
+    <% end %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 todos_path, :class => 'btn' %>			
   </div>
