@@ -25,5 +25,9 @@ class Todo < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
 
-  default_scope where("deleted_at IS NULL").order("starred DESC")
+  default_scope where("deleted_at IS NULL").order("starred DESC, created_at ASC")
+
+  def self.active
+  	where("completed_at IS NULL")
+  end
 end

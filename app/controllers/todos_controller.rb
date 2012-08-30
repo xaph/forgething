@@ -28,7 +28,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = current_user.todos.includes(:tags)
+    @todos = current_user.todos.includes(:tags).active
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,8 +37,8 @@ class TodosController < ApplicationController
   end
 
   def all
-    @todos = Todo.unscoped.where(:user_id => current_user).order("starred DESC")
-
+    @todos = current_user.todos
+    
     respond_to do |format|
       format.html { render 'index' }
       format.json { render json: @todos }
@@ -105,6 +105,17 @@ class TodosController < ApplicationController
   # DELETE /todos/1.json
   def destroy
     @todo.deleted_at = Time.now
+    @todo.save
+
+    respond_to do |format|
+      format.html { redirect_to todos_url }
+      format.json { head :no_content }
+      format.js
+    end
+  end
+
+  def complete
+    @todo.completed_at = Time.now
     @todo.save
 
     respond_to do |format|

@@ -8,6 +8,7 @@ Forgething::Application.routes.draw do
     member do
       get 'star'
       get 'unstar'
+      delete 'complete'
     end
   end
 

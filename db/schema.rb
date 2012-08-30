@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830132204) do
+ActiveRecord::Schema.define(:version => 20120830184533) do
 
   create_table "tags", :force => true do |t|
     t.string   "name"
@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(:version => 20120830132204) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.datetime "deleted_at"
-    t.boolean  "starred",     :default => false
+    t.boolean  "starred",      :default => false
+    t.datetime "completed_at"
   end
 
   create_table "users", :force => true do |t|
