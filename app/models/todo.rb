@@ -20,6 +20,7 @@ class Todo < ActiveRecord::Base
   attr_accessible :description, :name, :user_id, :tag_ids
 
   validates_presence_of :name
+  validates_uniqueness_of :name, :message => "must be unique"
 
   belongs_to :user
   has_and_belongs_to_many :tags
