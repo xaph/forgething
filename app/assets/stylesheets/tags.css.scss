@@ -1,0 +1,11 @@
+// Place all the styles related to the Tags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tag {
+  font-size: 15px;
+  line-height: 25px;
+  .name {
+    padding: 15px 0px;
+    margin-left: 10px;
+  }
+}

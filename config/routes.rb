@@ -1,4 +1,6 @@
 Forgething::Application.routes.draw do
+  resources :tags
+
   resources :todos do
     collection do
       get 'all'

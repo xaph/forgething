@@ -7,7 +7,9 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @todo.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @todo.description %></dd>
+  <dd>-<%= @todo.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tags) %>:</strong></dt>
+  <dd><%= @todo.tags.map {|t| t.name } %></dd>
 </dl>
 
 <div class="form-actions">

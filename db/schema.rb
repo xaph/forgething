@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120825093817) do
+ActiveRecord::Schema.define(:version => 20120830103824) do
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags_todos", :id => false, :force => true do |t|
+    t.integer "tag_id"
+    t.integer "todo_id"
+  end
+
+  add_index "tags_todos", ["tag_id", "todo_id"], :name => "index_tags_todos_on_tag_id_and_todo_id"
+  add_index "tags_todos", ["todo_id", "tag_id"], :name => "index_tags_todos_on_todo_id_and_tag_id"
 
   create_table "todos", :force => true do |t|
     t.string   "name"

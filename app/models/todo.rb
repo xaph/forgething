@@ -17,11 +17,12 @@
 # along with ForgeThing.  If not, see <http://www.gnu.org/licenses/>.
 
 class Todo < ActiveRecord::Base
-  attr_accessible :description, :name, :user_id
+  attr_accessible :description, :name, :user_id, :tag_ids
 
   validates_presence_of :name
 
   belongs_to :user
+  has_and_belongs_to_many :tags
 
   default_scope where("deleted_at IS NULL").order("starred DESC")
 end
