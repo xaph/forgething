@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    @tags = current_user.tags
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,6 +42,7 @@ class TagsController < ApplicationController
   # POST /tags.json
   def create
     @tag = Tag.new(params[:tag])
+    @tag.user = current_user
 
     respond_to do |format|
       if @tag.save

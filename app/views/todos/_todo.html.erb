@@ -1,5 +1,5 @@
 <%= div_for todo, :class => cycle("gray", "") do %>
-  <span class="name span4">
+  <div class="name span4">
     <span class="star">
       <% if todo.starred %>
         <%= link_to "<i class='icon-star'></i>".html_safe, unstar_todo_path(todo), :remote => true %>
@@ -8,7 +8,10 @@
       <% end %>
     </span>
     <%= todo.name %>
-  </span>
+    <span class="todo_tags">
+      <%= todo.tags.map { |tag| tag.name }.join(", ") %>
+    </span>
+  </div>
   <div class="created_at span2">
     <%= time_ago_in_words(todo.created_at) %>
     <div class="todo_actions">

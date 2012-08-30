@@ -6,7 +6,7 @@
 <div class="span2">
 	<div id="tags">
 		<h3>Tags</h3>
-		<%= render Tag.all %>
+		<%= render current_user.tags %>
 	</div>
 
 	<%= simple_form_for(Tag.new, remote: true) do |f| %>

@@ -29,4 +29,5 @@ class User < ActiveRecord::Base
 
   # associations
   has_many :todos
+  has_many :tags
 end
