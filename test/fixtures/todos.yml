@@ -6,6 +6,6 @@ one:
   user: one
 
 two:
-  name: MyString
+  name: MyStringTwo
   description: MyText
   user_id: 1
