@@ -17,7 +17,7 @@
 # along with ForgeThing.  If not, see <http://www.gnu.org/licenses/>.
 
 class Todo < ActiveRecord::Base
-  attr_accessible :description, :name, :user_id, :tag_ids
+  attr_accessible :description, :name, :due_date, :user_id, :tag_ids
 
   validates_presence_of :name
   validates_uniqueness_of :name, :message => "must be unique"
