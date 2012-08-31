@@ -30,4 +30,17 @@ class User < ActiveRecord::Base
   # associations
   has_many :todos
   has_many :tags
+  has_many :authentications
+
+  def build_with_provider(omniauth)
+    user_info = omniauth['info']
+    provider = omniauth['provider']
+
+    if provider=='twitter'
+      self.email= user_info['nickname']
+      elsif provider=='facebook'
+      self.email= user_info['email']
+    end
+    self.authentications.build(:provider => provider, :uid => omniauth['uid'])
+  end
 end

@@ -9,6 +9,9 @@ gem 'sqlite3'
 gem 'devise'
 gem 'simple_form'
 gem 'cancan'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 gem 'quiet_assets', :group => :development
 

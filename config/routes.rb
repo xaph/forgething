@@ -1,4 +1,6 @@
 Forgething::Application.routes.draw do
+  match '/auth/:provider/callback' => 'authentications#create'
+  resources :authentications
   resources :tags
 
   resources :todos do
