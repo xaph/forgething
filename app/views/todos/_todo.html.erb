@@ -12,10 +12,10 @@
       <%= todo.tags.map { |tag| tag.name }.join(", ") %>
     </span>
   </div>
-  <div class="created_at span2">
+  <div class="created_at span3">
     <%= distance_of_time_in_words(DateTime.now, todo.due_date) unless todo.due_date.nil? %> left
     <br>
-    <%= time_ago_in_words(todo.created_at) %>
+    created <%= time_ago_in_words(todo.created_at) %> ago
     <div class="todo_actions">
       <% if todo.completed_at.nil? %>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
