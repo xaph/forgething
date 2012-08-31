@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   has_many :todos
   has_many :tags
   has_many :authentications
-
+  
   def build_with_provider(omniauth)
     user_info = omniauth['info']
     provider = omniauth['provider']
