@@ -3,3 +3,8 @@
 ForgeThing is a simple todo list application.
 
 You can use it from http://www.forgething.com
+
+== Contributors
+
+Zafer Cakmak
+Ender Ahmet Yurt
