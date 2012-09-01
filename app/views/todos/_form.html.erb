@@ -1,7 +1,8 @@
 <%= simple_form_for @todo, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :due_date, :as => :string, :input_html => { :value => @todo.due_date.strftime("%Y-%m-%d %H:%M") } %>
+  <% due_date = @todo.due_date.strftime("%Y-%m-%d %H:%M") unless @todo.due_date.nil? %>
+  <%= f.input :due_date, :as => :string, :input_html => { :value => due_date } %>
   <%= f.association :tags, :collection => current_user.tags %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
