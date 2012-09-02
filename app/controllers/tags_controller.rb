@@ -21,7 +21,7 @@ class TagsController < ApplicationController
   load_and_authorize_resource
   
   rescue_from ActiveRecord::RecordNotFound do
-    flash[:error] = 'The todo you tried to access does not exist'
+    flash[:error] = 'The tag you tried to access does not exist'
     redirect_to todos_path
   
   end
@@ -85,11 +85,10 @@ class TagsController < ApplicationController
   # PUT /tags/1
   # PUT /tags/1.json
   def update
-    @tag = Tag.find(params[:id])
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
+        format.html { redirect_to todos_path, notice: 'Tag was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -33,6 +33,16 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+#Rspec Testing Gem
+group :test, :development do
+  gem 'sqlite3'
+  gem "rspec-rails", "~> 2.0"
+end
+#Coverage Gem
+gem 'simplecov', :require => false, :group => :test
+#Factory Girl for Tests
+gem 'factory_girl_rails'
+gem "database_cleaner", "~> 0.8.0"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
