@@ -16,7 +16,6 @@ Tore Serter
 
 Add these lines to your config/environments/<your_environment>.rb file
 
-```
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
@@ -26,4 +25,4 @@ Add these lines to your config/environments/<your_environment>.rb file
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
-```
+
