@@ -12,6 +12,7 @@ gem 'cancan'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-google'
 
 gem 'quiet_assets', :group => :development
 

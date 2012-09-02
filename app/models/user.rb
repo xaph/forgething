@@ -40,6 +40,8 @@ class User < ActiveRecord::Base
       self.email= user_info['nickname']
       elsif provider=='facebook'
       self.email= user_info['email']
+      elsif provider=='google'
+      self.email= user_info['email'] 
     end
     self.authentications.build(:provider => provider, :uid => omniauth['uid'])
   end
