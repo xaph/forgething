@@ -8,6 +8,7 @@ You can use it from http://www.forgething.com
 
 Zafer Cakmak
 Ender Ahmet Yurt
+Tore Serter
 
 == Configuration
 
