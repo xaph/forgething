@@ -1,5 +1,4 @@
 Forgething::Application.routes.draw do
-  match '/auth/:provider/callback' => 'authentications#create'
   resources :authentications
   resources :tags
 
@@ -14,7 +13,7 @@ Forgething::Application.routes.draw do
     end
   end
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "home/index"
   root :to => 'home#index'
