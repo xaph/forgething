@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Daily Todos from forgething.com</h1>
+
+    <p>
+      Here are te list of your todos:
+    </p>
+
+    <h3>Today's todos</h3>
+    <% @today_todos.each do |todo| %>
+      <%= div_for todo, :class => cycle("gray", "") do %>
+        <div class="name">
+          <%= link_to todo.name, todo_path(todo) %>
+          <span class="duedate">
+            <%= todo.due_date %>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+
+    <h3>Starred todos</h3>
+    <% @starred_todos.each do |todo| %>
+      <%= div_for todo, :class => cycle("gray", "") do %>
+        <div class="name">
+          <%= link_to todo.name, todo_path(todo) %>
+          <span class="duedate">
+            <%= todo.due_date unless todo.due_date.nil? %>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+
+    <br>
+    <br>
+    <p><%= link_to "You can reach all of your todos by clicking here", "http://www.forgething.com/todos" %></p>
+    <p>Have a great day!</p>
+  </body>
+</html>

@@ -30,4 +30,13 @@ class Todo < ActiveRecord::Base
   def self.active
   	where("completed_at IS NULL")
   end
+
+  def self.starred
+  	where(:starred => true).active
+  end
+
+  def self.today
+  	d = DateTime.now.end_of_day
+  	where(:due_date => d-1.day..d).active
+  end
 end
