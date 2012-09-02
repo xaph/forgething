@@ -22,7 +22,7 @@ class AuthenticationsController < ApplicationController
   end
   
   def create
-	omniauth = request.env["omniauth.auth"]
+	  omniauth = request.env["omniauth.auth"]
     # Try to find authentication first
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
