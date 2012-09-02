@@ -1,5 +1,5 @@
 class TodoMailer < ActionMailer::Base
-  default from: "mzcakmak@gmail.com"
+  default from: "info@forgething.com"
 
   def daily_email(user)
   	@user = user
