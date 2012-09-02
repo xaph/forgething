@@ -22,5 +22,6 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     can :manage, Todo, :user_id => user.id
+    can :manage, Tag, :user_id => user.id
   end
 end
