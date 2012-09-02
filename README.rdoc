@@ -6,9 +6,9 @@ You can use it from http://www.forgething.com
 
 == Contributors
 
-Zafer Cakmak
-Ender Ahmet Yurt
-Tore Serter
+* Zafer Cakmak
+* Ender Ahmet Yurt
+* Tore Serter
 
 == Configuration
 
