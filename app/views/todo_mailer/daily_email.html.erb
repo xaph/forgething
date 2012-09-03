@@ -7,31 +7,39 @@
     <h1>Daily Todos from forgething.com</h1>
 
     <p>
-      Here are te list of your todos:
+      Here are the list of your todos:
     </p>
 
     <h3>Today's todos</h3>
-    <% @today_todos.each do |todo| %>
-      <%= div_for todo, :class => cycle("gray", "") do %>
-        <div class="name">
-          <%= link_to todo.name, todo_url(todo) %>
-          <span class="duedate">
-            <%= todo.due_date %>
-          </span>
-        </div>
+    <% if @today_todos.count > 0 %>  
+      <% @today_todos.each do |todo| %>
+        <%= div_for todo, :class => cycle("gray", "") do %>
+          <div class="name">
+            <%= link_to todo.name, todo_url(todo) %>
+            <span class="duedate">
+              <%= todo.due_date %>
+            </span>
+          </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <p>You don't have any todos to complete today</p>
     <% end %>
 
     <h3>Starred todos</h3>
-    <% @starred_todos.each do |todo| %>
-      <%= div_for todo, :class => cycle("gray", "") do %>
-        <div class="name">
-          <%= link_to todo.name, todo_url(todo) %>
-          <span class="duedate">
-            <%= todo.due_date unless todo.due_date.nil? %>
-          </span>
-        </div>
+    <% if @starred_todos.count > 0 %>  
+      <% @starred_todos.each do |todo| %>
+        <%= div_for todo, :class => cycle("gray", "") do %>
+          <div class="name">
+            <%= link_to todo.name, todo_url(todo) %>
+            <span class="duedate">
+              <%= todo.due_date unless todo.due_date.nil? %>
+            </span>
+          </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <p>You don't have any active starred todos</p>
     <% end %>
 
     <br>
