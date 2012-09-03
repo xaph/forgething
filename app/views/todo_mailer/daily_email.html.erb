@@ -14,7 +14,7 @@
     <% @today_todos.each do |todo| %>
       <%= div_for todo, :class => cycle("gray", "") do %>
         <div class="name">
-          <%= link_to todo.name, todo_path(todo) %>
+          <%= link_to todo.name, todo_url(todo) %>
           <span class="duedate">
             <%= todo.due_date %>
           </span>
@@ -26,7 +26,7 @@
     <% @starred_todos.each do |todo| %>
       <%= div_for todo, :class => cycle("gray", "") do %>
         <div class="name">
-          <%= link_to todo.name, todo_path(todo) %>
+          <%= link_to todo.name, todo_url(todo) %>
           <span class="duedate">
             <%= todo.due_date unless todo.due_date.nil? %>
           </span>
