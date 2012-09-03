@@ -14,12 +14,11 @@
 	<% end %>
 </div>
 <div class="span7">
+	<%= simple_form_for(Todo.new, remote: true, :html => { :class => 'form-horizontal' }) do |f| %>
+	  <%= f.input :name, label: :new_todo %>
+	<% end %>
 	<%= link_to "show all todos (includes completed ones)", all_todos_path %>
 	<div id="todos">
 	  <%= render @todos %>
 	</div>
-
-	<%= simple_form_for(Todo.new, remote: true, :html => { :class => 'form-horizontal' }) do |f| %>
-	  <%= f.input :name, label: :new_todo %>
-	<% end %>
 </div>
