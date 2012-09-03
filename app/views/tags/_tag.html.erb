@@ -1,6 +1,7 @@
 <%= div_for tag do %>
   <span class="name">
     <%= link_to tag.name, tag_path(tag) %>
+    <%= link_to "<i class='icon-edit'></i>".html_safe, edit_tag_path(tag) %>
   </span>
   <div class="clearfix"></div>
 <% end %>
