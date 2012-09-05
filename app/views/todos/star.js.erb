@@ -1,1 +1,2 @@
+$('#<%= dom_id(@todo) %>').detach().prependTo('#todos');
 $('div#<%= dom_id(@todo) %> .star').html('<%= link_to "<i class=\"icon-star\"></i>".html_safe, unstar_todo_path(@todo), :remote => true %>');
