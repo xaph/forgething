@@ -1,11 +1,15 @@
 <%- model_class = Todo -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	<% if controller.controller_name == 'tags' %>
+		<h1>Todos for tag: <%= @tag.name %></h1>
+	<% else %>
+  	<h1><%= link_to t(:todos), todos_path, :class => 'title' %></h1>
+  <% end %>
 </div>
 
 <div class="span2">
 	<div id="tags">
-		<h3>Tags</h3>
+		<h3><%= link_to t(:tags), tags_path %></h3>
 		<%= render current_user.tags %>
 	</div>
 
