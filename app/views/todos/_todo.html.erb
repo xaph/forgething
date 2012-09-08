@@ -13,7 +13,7 @@
     </span>
   </div>
   <div class="created_at span3">
-    <%= distance_of_time_in_words(DateTime.now, todo.due_date) unless todo.due_date.nil? %> left
+    <%= distance_of_time_in_words(DateTime.now, todo.due_date) unless todo.due_date.nil? %>
     <br>
     created <%= time_ago_in_words(todo.created_at) %> ago
     <div class="todo_actions">
@@ -24,7 +24,7 @@
           complete_todo_path(todo),
           :method => :delete,
           :remote => true,
-          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => '')) },
           :class => 'btn btn-mini btn-success' %>
       <% else %>
         <span><%= t(:completed) %></span>
