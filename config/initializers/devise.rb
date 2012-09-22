@@ -209,7 +209,7 @@ Devise.setup do |config|
   gem 'omniauth-twitter'
   config.omniauth :twitter, 'FYCfmMvSzulNB2fDAfqNbw', 'u1ici8DEAeWo4cQRdsjQrgT3MnmIndQGXvXGvvQcflM'
   require "omniauth-facebook"
-  config.omniauth :facebook, '376676559068606', '174b7597a0c4b6d4658c5ca2a5f94a98', :scope => 'email'
+  config.omniauth :facebook, '376676559068606', '55e053a5a77d43aa5376a7332309f03f', :scope => 'email'
   gem 'omniauth-google'
   config.omniauth :google , 'forgething.com', '3UbC7OxW2Z6bGZpStAlCTlFT'
 

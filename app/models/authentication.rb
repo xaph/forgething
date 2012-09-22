@@ -17,6 +17,6 @@
 # along with ForgeThing.  If not, see <http://www.gnu.org/licenses/>.
 
 class Authentication < ActiveRecord::Base
-  belongs_to :user
   attr_accessible :provider, :uid, :user_id
+  belongs_to :user
 end

@@ -35,7 +35,6 @@ class User < ActiveRecord::Base
   def build_with_provider(omniauth)
     user_info = omniauth['info']
     provider = omniauth['provider']
-
     if provider != 'twitter' #facebook and google gets email from user_info['email']
       self.email= user_info['email']
     end

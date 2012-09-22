@@ -12,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # Authentication not found, thus a new user.
       user = User.find_by_email(omniauth['info']['email']) || User.new
       user.build_with_provider(omniauth)
-      if user.save
+      if user.save || omniauth['provider'] != 'twitter'
         flash[:notice] = "Signed in successfully."
         sign_in_and_redirect(:user, user)
       else #twitter user
